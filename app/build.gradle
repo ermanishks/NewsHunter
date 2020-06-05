@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    generateStubs = true
+}
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.mani.newshunter"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+
+    implementation deps.kotlin
+    implementation deps.androidX.appCompat
+    implementation deps.androidX.core_ktx
+    implementation deps.androidX.cardView
+    implementation deps.androidX.recyclerView
+    implementation deps.androidX.navigationUi
+    implementation deps.androidX.navigationFragment
+    implementation deps.androidX.viewpager2
+    implementation deps.androidX.constraintlayout
+
+
+    //Live data, ViewModel
+    implementation deps.archComponents.lifecycleExt
+    implementation deps.archComponents.lifecycleCommonJava8
+    implementation deps.archComponents.lifecycleReactiveStreams
+    implementation deps.archComponents.lifecycleViewmodel
+
+
+    //Dagger
+    implementation deps.archComponents.dagger
+    implementation deps.archComponents.daggerAndroid
+    implementation deps.archComponents.daggerAndroidSupport
+    kapt deps.archComponents.daggerCompiler
+    kapt deps.archComponents.daggerAndroidProcessor
+    //Extras
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
+    implementation deps.extras.materialprogressbar
+
+
+    implementation deps.extras.material
+    debugImplementation deps.extras.leakCanary
+
+    implementation deps.extras.ssp
+    implementation deps.extras.sdp
+
+    //Unit Testing
+    testImplementation deps.testing.jUnit
+    androidTestImplementation deps.testing.testRunner
+    androidTestImplementation deps.testing.espressoCore
+    // JUnit Rules
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
