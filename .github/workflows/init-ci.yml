@@ -24,7 +24,7 @@ jobs:
 
       - name: execute test-py script
         run: |
-            python run.py "Manish Python test" lower
+            python sysdemo.py "Manish Python test" lower
   #job 2
   unit-test:
      name: Run Unit Tests
