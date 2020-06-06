@@ -1,4 +1,4 @@
-package com.mani.newshunter.features.main.ext
+package com.mani.newshunter.ext
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

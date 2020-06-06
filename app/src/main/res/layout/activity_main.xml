@@ -3,16 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".features.main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_news"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_headline_news"
+        tools:ignore="UnusedAttribute"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

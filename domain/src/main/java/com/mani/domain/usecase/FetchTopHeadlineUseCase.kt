@@ -9,7 +9,7 @@ import com.mani.domain.repositories.TopHeadlineRepo
  */
 class FetchTopHeadlineUseCase(private val headlineRepo: TopHeadlineRepo) {
 
-    suspend fun execute(countryCode:String): Resource<TopHeadlineVO> {
+    suspend fun execute(countryCode:String="in"): Resource<TopHeadlineVO> {
         return headlineRepo.fetchTopHeadlines(countryCode)
     }
 }

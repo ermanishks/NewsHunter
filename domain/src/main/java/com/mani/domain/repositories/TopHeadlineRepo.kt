@@ -9,5 +9,5 @@ import com.mani.domain.entities.model.TopHeadlineVO
  */
 interface TopHeadlineRepo {
 
-    suspend fun fetchTopHeadlines(country: String = "in"): Resource<TopHeadlineVO>
+    suspend fun fetchTopHeadlines(country: String): Resource<TopHeadlineVO>
 }

@@ -12,5 +12,5 @@ import javax.inject.Singleton
 interface HeadLineApis {
 
     @GET("top-headlines")
-    suspend fun getTopHeadlines(@Query("country") countryCode: String = "in"): TopHeadlineVO
+    suspend fun getTopHeadlines(@Query("country") countryCode: String): TopHeadlineVO
 }

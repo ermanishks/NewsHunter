@@ -24,12 +24,11 @@ class MainViewModel @Inject constructor(
     }
     val topheadLinesData = MutableLiveData<Resource<TopHeadlineVO>>()
 
-    fun loadTopheadlinesFromIndia() {
-        Log.d("MANISH", "   loadTopheadlinesFromIndia....  ")
+    fun loadTopheadlines() {
         topheadLinesData.value = Resource.loading(null)
         viewModelScope.launch(exceptionHandler) {
             val elapsedTime = measureTimeMillis {
-                val headlinesVO = topHeadlineUseCase.execute("in")
+                val headlinesVO = topHeadlineUseCase.execute()
                 topheadLinesData.value = headlinesVO
             }
             Log.d("MANISH"," elapsedTime  $elapsedTime")
