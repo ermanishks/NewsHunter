@@ -41,7 +41,7 @@ jobs:
 
      - name: Running lint
        run: bash ./gradlew lintDebug
-       
+
      - name: Running Unit tests
        run: bash ./gradlew test --stacktrace
 
