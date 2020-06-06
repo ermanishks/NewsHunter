@@ -17,13 +17,13 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - name: setting up python
-          uses: actions/setup-python@v2
-          with:
+      - name: setting up python
+        uses: actions/setup-python@v2
+        with:
             python-version: 3.8
 
-        - name: execute test-py script
-          run: |
+      - name: execute test-py script
+        run: |
             python run.py "Manish Python test" lower
   #job 2
   unit-test:
@@ -31,19 +31,19 @@ jobs:
      runs-on: ubuntu-latest
   
      steps:
-      - name: check out code
-        uses: actions/checkout@v2
+     - name: check out code
+       uses: actions/checkout@v2
 
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
+     - name: set up JDK 1.8
+       uses: actions/setup-java@v1
+       with:
           java-version: 1.8
 
-      - name: Running Unit tests
-        run: bash ./gradlew test --stacktrace
+     - name: Running Unit tests
+       run: bash ./gradlew test --stacktrace
 
-      - name: Running lint
-        run: bash ./gradlew lintDebug
+     - name: Running lint
+       run: bash ./gradlew lintDebug
 
   #job3
   apk_build:  # all steps of this apk_build job will run on the same machine(here ubuntu-latest)
