@@ -26,6 +26,8 @@ versions.ssp='1.0.6'
 versions.sdp='1.0.6'
 versions.constraintlayout='1.1.3'
 versions.materialprogressbar='1.6.1'
+versions.coroutines = '1.3.0'
+versions.coroutinesandroid = '1.3.0'
 
 def deps = [:]
 
@@ -85,7 +87,14 @@ networking.rxAdapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofi
 networking.gson = "com.google.code.gson:gson:$versions.gson"
 networking.okHttp = "com.squareup.okhttp3:okhttp:$versions.okHttp"
 networking.okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
+networking.coro
 deps.networking = networking
+
+
+def jetbrains = [:]
+jetbrains.coroutines= "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+jetbrains.coroutinesandroid= "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+deps.jetbrains = jetbrains
 
 def extras = [:]
 extras.material = "com.google.android.material:material:$versions.material"
@@ -94,7 +103,6 @@ extras.leakCanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakCa
 extras.ssp="com.intuit.ssp:ssp-android:$versions.ssp"
 extras.sdp="com.intuit.sdp:sdp-android:$versions.sdp"
 extras.playServicesLocation = "com.google.android.gms:play-services-location:$versions.playServicesLocation"
-//extras.youtubePlayer = "com.pierfrancescosoffritti.androidyoutubeplayer:core:$versions.youtubePlayer"
 extras.flexbox = "com.google.android:flexbox:$versions.flexbox"
 extras.apacheCommons = "org.apache.commons:commons-collections4:$versions.apache_commons_collections"
 extras.signature_pad = "com.github.gcacace:signature-pad:$versions.signature_pad"

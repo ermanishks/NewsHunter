@@ -23,9 +23,11 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField "String", "BASE_URL", '"https://newsapi.org/v2/"'
             minifyEnabled false
         }
         release {
+            buildConfigField "String", "BASE_URL", '"https://newsapi.org/v2/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -49,6 +51,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':domain')
+    api project(':data')
 
     implementation deps.kotlin
     implementation deps.androidX.appCompat
@@ -67,7 +70,9 @@ dependencies {
     implementation deps.archComponents.lifecycleReactiveStreams
     implementation deps.archComponents.lifecycleViewmodel
 
-
+    // coroutines
+    implementation deps.jetbrains.coroutines
+    implementation deps.jetbrains.coroutinesandroid
     //Dagger
     implementation deps.archComponents.dagger
     implementation deps.archComponents.daggerAndroid
