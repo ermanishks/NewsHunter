@@ -25,14 +25,20 @@ jobs: #  Jobs run in parallel by default. To run jobs sequentially, you can defi
         run: bash ./gradlew test --stacktrace
       - name: Running lint
         run: bash ./gradlew lintDebug
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8 #install the python needed
-      - name: execute test-py script # run the run.py to get the latest data
-        run: |
-          python run.py "Manish Python test" lower
-    
+
+  python-job: # python job
+      name: Run python script
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/setup-python@v2
+      - name: setting up python
+      with:
+        python-version: 3.8 #install the python needed
+    - name: execute test-py script # run the run.py to get the latest data
+      run: |
+        python run.py "Manish Python test" lower
+
   apk_build:  # all steps of this apk_build job will run on the same machine(here ubuntu-latest)
       name: Generate APK
       runs-on: ubuntu-latest
