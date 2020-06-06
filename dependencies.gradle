@@ -17,6 +17,7 @@ versions.core_ktx = '1.1.0-alpha05'
 versions.material = '1.0.0-beta01'
 versions.jUnit = '4.12'
 versions.testRunner = '1.1.0-alpha4'
+versions.testRules = '1.2.0'
 versions.espressoCore = '3.1.0-alpha4'
 versions.leakCanary = '2.2'
 versions.viewpager2 = '1.0.0-beta04'
@@ -113,6 +114,7 @@ def testing = [:]
 testing.jUnit = "junit:junit:$versions.jUnit"
 testing.testRunner = "androidx.test:runner:$versions.testRunner"
 testing.espressoCore = "androidx.test.espresso:espresso-core:$versions.espressoCore"
+testing.rules = "androidx.test:rules:$versions.testRules"
 deps.testing = testing
 
 ext.deps = deps
