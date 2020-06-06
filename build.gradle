@@ -8,7 +8,6 @@ buildscript {
         classpath deps.gradlePlugin
         classpath deps.kotlinPlugin
         classpath deps.safeArgsPlugin
-        classpath deps.firebaseCrashlyticPlugin
         classpath 'com.google.gms:google-services:4.3.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
